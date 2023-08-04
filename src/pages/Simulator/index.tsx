@@ -5,7 +5,6 @@ import * as Simulations from "../../lib/api/simulation";
 import { Form } from "../../components/Form";
 import { Main } from "../../components/Main";
 import { api } from "../../lib/api";
-import { useNavigate } from "react-router-dom";
 
 export function Simulator() {
   const [formData, setFormData] = useState<Simulations.Simulation>({
@@ -15,7 +14,6 @@ export function Simulator() {
   });
 
   const [result, setResult] = useState("");
-  const navigate = useNavigate();
 
   const handleChangeValue = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -41,7 +39,6 @@ export function Simulator() {
     try {
       const { name, payment, time } = formData;
       const convertYearInMonths = Number(time) * 12;
-      const convertResult = Number(result);
 
       const response = await api.post("/", {
         expr: `${payment} * (((1 + 0.00517) ^ ${convertYearInMonths} - 1) / 0.00517)`,
@@ -49,9 +46,6 @@ export function Simulator() {
 
       setResult(response.data.result);
 
-      navigate(
-        `/information/${name}/${payment}/${convertYearInMonths}/${convertResult}`
-      );
       handleResetForm();
     } catch (error) {
       console.log(error);
