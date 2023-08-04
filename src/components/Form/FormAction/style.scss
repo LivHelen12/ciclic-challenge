@@ -1,0 +1,21 @@
+.button {
+  background-color: #6a80ff;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: .7rem 0;
+
+  letter-spacing: .1rem;
+
+  border-radius: .5rem;
+  border: 1px solid rgba($color: #000000, $alpha: .8);
+
+  margin-top: 1.5rem;
+
+  cursor: pointer;
+
+  transition: .5s ease-in;
+
+  &:hover {
+    background-color: #8257e5;
+  }
+}

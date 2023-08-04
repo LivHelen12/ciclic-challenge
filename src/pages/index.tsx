@@ -4,11 +4,13 @@ import { Layout } from "../components/Layout";
 
 export function App() {
   return (
-    <Layout>
-      <Header.Root>
-        <Header.Content>Ciclic</Header.Content>
-      </Header.Root>
-      <Simulator />
-    </Layout>
+    <>
+      <Layout>
+        <Header.Root>
+          <Header.Content>Ciclic</Header.Content>
+        </Header.Root>
+        <Simulator />
+      </Layout>
+    </>
   );
 }
