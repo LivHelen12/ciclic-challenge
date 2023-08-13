@@ -6,6 +6,10 @@ export function useLocalStorage<T>(key: string) {
     return value ? JSON.parse(value) : "";
   });
 
+  const clearLocalStorage = () => {
+    localStorage.clear();
+  };
+
   const updateStoragedValue = (newValue: T) => {
     setStoragedValue(newValue);
     localStorage.setItem(key, JSON.stringify(newValue));
@@ -14,5 +18,6 @@ export function useLocalStorage<T>(key: string) {
   return {
     storagedValue,
     updateStoragedValue,
+    clearLocalStorage,
   };
 }
