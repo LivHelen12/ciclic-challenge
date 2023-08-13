@@ -1,7 +1,6 @@
-import { Simulator } from "../pages/Simulator";
 import { Header } from "../components/Header";
-
 import { Layout } from "../components/Layout";
+import AppRoutes from "../routes";
 
 export function App() {
   return (
@@ -10,7 +9,7 @@ export function App() {
         <Header.Root>
           <Header.Content>Ciclic</Header.Content>
         </Header.Root>
-        <Simulator />
+        <AppRoutes />
       </Layout>
     </>
   );

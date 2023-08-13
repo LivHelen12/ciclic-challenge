@@ -1,8 +1,9 @@
 import { ChangeEvent, FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Form } from "../../components/Form";
 import { Main } from "../../components/Main";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
 
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { api } from "../../lib/api";
 
 export function Simulator() {
@@ -12,7 +13,9 @@ export function Simulator() {
     time: "",
   });
 
-  const { updateStoragedValue } = useLocalStorage("simulation");
+  const { storagedValue, updateStoragedValue } = useLocalStorage("simulation");
+
+  const navigate = useNavigate();
 
   const handleClearForm = () => {
     setFormData({
@@ -50,6 +53,10 @@ export function Simulator() {
         payment: formData.payment,
         time: formData.time,
       });
+
+      if (storagedValue) {
+        navigate("/information");
+      }
 
       handleClearForm();
     } catch (error) {
