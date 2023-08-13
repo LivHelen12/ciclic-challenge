@@ -17,10 +17,18 @@ interface ExpressionProps {
 }
 
 export const simulate = async ({ payment, time }: ExpressionProps) => {
-  const response = await api.post("/", {
-    expr: `${payment} * (((1 + 0.00517) ^ ${time} - 1) / 0.00517)`,
-    precision: 6,
-  });
+  const response = await api.post(
+    "/",
+    {
+      expr: `${payment} * (((1 + 0.00517) ^ ${time} - 1) / 0.00517)`,
+      precision: 6,
+    },
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
   return response.data;
 };
