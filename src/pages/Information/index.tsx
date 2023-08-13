@@ -22,7 +22,7 @@ export function Information() {
       <Description.Paragraph>
         Juntando <b>{FormattedPayment(storagedValue.payment)}</b> todo mês você
         terá <b>{FormattedPayment(storagedValue.result)}</b> em{" "}
-        {storagedValue.time} anos.
+        {storagedValue.time} ano(s).
       </Description.Paragraph>
       <Description.Action onClick={handleBackToSimulation}>
         Simular novamente
