@@ -12,9 +12,7 @@ export function Simulator() {
     payment: "",
     time: "",
   });
-
   const { updateStoragedValue } = useLocalStorage("simulation");
-
   const navigate = useNavigate();
 
   const handleClearForm = () => {
@@ -49,7 +47,7 @@ export function Simulator() {
       });
 
       updateStoragedValue({
-        response: response.data.result,
+        result: response.data.result,
         name: formData.name,
         payment: formData.payment,
         time: formData.time,
