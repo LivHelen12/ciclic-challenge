@@ -1,31 +1,20 @@
-import { useState } from "react";
-
-import * as Simulations from "../../lib/api/simulation";
-
+import { ChangeEvent, FormEvent, useState } from "react";
 import { Form } from "../../components/Form";
 import { Main } from "../../components/Main";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
+
 import { api } from "../../lib/api";
 
 export function Simulator() {
-  const [formData, setFormData] = useState<Simulations.Simulation>({
+  const [formData, setFormData] = useState({
     name: "",
     payment: "",
     time: "",
   });
 
-  const [result, setResult] = useState("");
+  const { updateStoragedValue } = useLocalStorage("simulation");
 
-  const handleChangeValue = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = event.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleResetForm = () => {
+  const handleClearForm = () => {
     setFormData({
       name: "",
       payment: "",
@@ -33,22 +22,38 @@ export function Simulator() {
     });
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleChangeValue = (
+    event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = event.target;
+
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
-      const { name, payment, time } = formData;
+      const { payment, time } = formData;
       const convertYearInMonths = Number(time) * 12;
 
       const response = await api.post("/", {
         expr: `${payment} * (((1 + 0.00517) ^ ${convertYearInMonths} - 1) / 0.00517)`,
       });
 
-      setResult(response.data.result);
+      updateStoragedValue({
+        response: response.data.result,
+        name: formData.name,
+        payment: formData.payment,
+        time: formData.time,
+      });
 
-      handleResetForm();
+      handleClearForm();
     } catch (error) {
-      console.log(error);
+      console.log({ error });
     }
   };
 
@@ -95,3 +100,5 @@ export function Simulator() {
     </Main>
   );
 }
+
+export default Simulator;
