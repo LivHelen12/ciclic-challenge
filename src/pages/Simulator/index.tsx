@@ -4,7 +4,7 @@ import { Form } from "../../components/Form";
 import { Main } from "../../components/Main";
 
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { api } from "../../lib/api";
+import { simulate } from "../../lib/api/simulation";
 
 export function Simulator() {
   const [formData, setFormData] = useState({
@@ -41,13 +41,13 @@ export function Simulator() {
       const { payment, time } = formData;
       const convertYearInMonths = Number(time) * 12;
 
-      const response = await api.post("/", {
-        expr: `${payment} * (((1 + 0.00517) ^ ${convertYearInMonths} - 1) / 0.00517)`,
-        precision: 6,
+      const response = await simulate({
+        payment: Number(payment),
+        time: convertYearInMonths,
       });
 
       updateStoragedValue({
-        result: response.data.result,
+        result: response.result,
         name: formData.name,
         payment: formData.payment,
         time: formData.time,
