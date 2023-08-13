@@ -1,5 +1,4 @@
 import { HTMLAttributes } from "react";
-import "./style.scss";
 interface FormActionProps extends HTMLAttributes<HTMLButtonElement> {
   children: string;
 }
