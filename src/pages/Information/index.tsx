@@ -17,9 +17,11 @@ export function Information() {
     <Description.Root>
       <Description.Title>Informações</Description.Title>
       <Description.Paragraph>
-        Olá <b>{storagedValue.name}</b>, juntando{" "}
-        <b>{FormattedPayment(storagedValue.payment)}</b> todo mês você terá{" "}
-        <b>{FormattedPayment(storagedValue.response)}</b> em{" "}
+        Olá <b>{storagedValue.name}</b>,
+      </Description.Paragraph>
+      <Description.Paragraph>
+        Juntando <b>{FormattedPayment(storagedValue.payment)}</b> todo mês você
+        terá <b>{FormattedPayment(storagedValue.response)}</b> em{" "}
         {storagedValue.time} anos.
       </Description.Paragraph>
       <Description.Action onClick={handleBackToSimulation}>
