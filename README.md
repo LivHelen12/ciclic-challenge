@@ -1,27 +1,39 @@
-# React + TypeScript + Vite
+# Ciclic Challenge
+## Description
+This project consists of making a simple application to calculate compound interest using the math.js api.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+It's important to note that the interest rate is fixed and does not represent reality.
 
-Currently, two official plugins are available:
+Status: DONE ✅
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## How it works
+The project was developed using vite, React and axios for the requests. Also, I am saving the data in localstorage to use it in another page.
 
-## Expanding the ESLint configuration
+You can see the project running [here](https://ciclic-challenge.vercel.app/).
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## How to run
+To run the project, you can clone the repository and run the following commands:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```bash
+git clone https://github.com/LivHelen12/ciclic-challenge.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+After that, you can run the following commands in the project folder:
+
+```bash
+npm install # to install the dependencies
+
+or
+
+yarn install # if you'd like to use yarn
+```
+
+and then:
+
+```bash
+npm run dev # to run the project
+
+or
+
+yarn dev 
+```
