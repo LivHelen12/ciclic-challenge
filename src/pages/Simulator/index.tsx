@@ -13,7 +13,7 @@ export function Simulator() {
     time: "",
   });
 
-  const { storagedValue, updateStoragedValue } = useLocalStorage("simulation");
+  const { updateStoragedValue } = useLocalStorage("simulation");
 
   const navigate = useNavigate();
 
@@ -45,6 +45,7 @@ export function Simulator() {
 
       const response = await api.post("/", {
         expr: `${payment} * (((1 + 0.00517) ^ ${convertYearInMonths} - 1) / 0.00517)`,
+        precision: 6,
       });
 
       updateStoragedValue({
@@ -54,9 +55,7 @@ export function Simulator() {
         time: formData.time,
       });
 
-      if (storagedValue) {
-        navigate("/information");
-      }
+      navigate("/information");
 
       handleClearForm();
     } catch (error) {
