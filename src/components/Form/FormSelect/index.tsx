@@ -8,7 +8,7 @@ interface FormSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {}
 export function FormSelect({ ...props }: FormSelectProps) {
   return (
     <select {...props} className="select">
-      <option value="" selected>
+      <option value="" defaultValue="">
         Selecione uma opção
       </option>
 
