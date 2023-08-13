@@ -1,4 +1,4 @@
-import DescriptionParagraph from "./DescriptionParagraph";
+import { DescriptionParagraph } from "./DescriptionParagraph";
 import { DescriptionTitle } from "./DescriptionTitle";
 import { DescriptionAction } from "./DescriptionActions";
 import { DescriptionRoot } from "./DescriptionRoot";

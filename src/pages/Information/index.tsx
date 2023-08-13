@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
-import FormattedPayment from "../../utils/formatted-payment";
+import { FormattedPayment } from "../../utils/formatted-payment";
 import { Description } from "../../components/Description";
 
 export function Information() {

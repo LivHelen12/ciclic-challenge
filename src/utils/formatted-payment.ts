@@ -1,4 +1,4 @@
-function FormattedPayment(payment: number) {
+export function FormattedPayment(payment: number) {
   const formattedPayment = new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",
@@ -6,5 +6,3 @@ function FormattedPayment(payment: number) {
 
   return formattedPayment;
 }
-
-export default FormattedPayment;

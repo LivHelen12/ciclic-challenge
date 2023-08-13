@@ -4,6 +4,6 @@ interface SectionProps {
   children: ReactNode;
 }
 
-export const Section = ({ children }: SectionProps) => {
+export function Section({ children }: SectionProps) {
   return <section>{children}</section>;
-};
+}

@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Information } from "../pages/Information";
-import Simulator from "../pages/Simulator";
+import { Simulator } from "../pages/Simulator";
 
-function AppRoutes() {
+export default function AppRoutes() {
   return (
     <Router>
       <Routes>
@@ -12,5 +12,3 @@ function AppRoutes() {
     </Router>
   );
 }
-
-export default AppRoutes;

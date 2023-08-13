@@ -4,6 +4,6 @@ interface DescriptionRootProps {
   children: ReactNode;
 }
 
-export const DescriptionRoot = ({ children }: DescriptionRootProps) => {
+export function DescriptionRoot({ children }: DescriptionRootProps) {
   return <>{children}</>;
-};
+}

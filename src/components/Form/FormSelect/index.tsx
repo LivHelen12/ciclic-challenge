@@ -5,7 +5,7 @@ import "./style.scss";
 
 interface FormSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {}
 
-export const FormSelect = ({ ...props }: FormSelectProps) => {
+export function FormSelect({ ...props }: FormSelectProps) {
   return (
     <select {...props} className="select">
       {options.map((option) => {
@@ -19,4 +19,4 @@ export const FormSelect = ({ ...props }: FormSelectProps) => {
       })}
     </select>
   );
-};
+}
