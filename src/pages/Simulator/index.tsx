@@ -57,7 +57,7 @@ export function Simulator() {
 
       handleClearForm();
     } catch (error) {
-      console.log({ error });
+      navigate("/400");
     }
   };
 
