@@ -11,6 +11,12 @@ The project was developed using vite, React and axios for the requests. Also, I 
 
 You can see the project running [here](https://ciclic-challenge.vercel.app/).
 
+
+## Screenshots
+![image](./src/images/1.png)
+
+![image](./src/images/2.png)
+
 ## How to run
 To run the project, you can clone the repository and run the following commands:
 
