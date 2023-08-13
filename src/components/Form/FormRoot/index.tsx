@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import { FormEvent, ReactNode } from "react";
 
 import "./style.scss";
 interface FormRootProps {
   children: ReactNode;
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  onSubmit: (event: FormEvent<HTMLFormElement>) => void;
 }
 
 export function FormRoot({ children, onSubmit }: FormRootProps) {
